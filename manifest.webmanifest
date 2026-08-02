@@ -1,0 +1,9 @@
+{
+  "name": "MFPI — личная система развития",
+  "short_name": "MFPI",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f4f0",
+  "theme_color": "#f4f4f0",
+  "description": "Трекер четырёх направлений: Main, Finance, Perspective, Involvement."
+}
