@@ -71,6 +71,26 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
 .menu{position:fixed;right:14px;bottom:calc(82px + env(safe-area-inset-bottom));width:min(290px,calc(100% - 28px));display:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;z-index:40;box-shadow:0 18px 50px rgba(30,60,90,.16)}
 .menu.open{display:block}.menu button,.menu label{display:flex;width:100%;min-height:43px;align-items:center;border:0;background:none;border-radius:11px;padding:0 12px}.danger{color:#b42318}.hide{display:none}
 @media(max-width:390px){.app{padding-left:12px;padding-right:12px}.navBtn{font-size:13px}.overview h1{font-size:31px}.goal{font-size:18px}}
+
+@media(min-width:900px){
+  .app{max-width:1180px;padding:32px 32px 110px}
+  .topbar{margin-bottom:28px}
+  .logo{font-size:32px}
+  .overview{padding:24px}
+  .list{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .card{padding:18px;min-width:0}
+  .weekList{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .weekHero{padding:24px}
+  .expList{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .bottomNav{width:520px!important}
+  .menu{right:max(32px,calc((100vw - 1180px)/2 + 32px))}
+}
+@media(min-width:1280px){
+  .app{max-width:1280px}
+  .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .weekList{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .expList{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 </style>
 </head>
 <body>
