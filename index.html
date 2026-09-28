@@ -50,13 +50,13 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 .add input{width:100%;min-width:0;height:44px;border:1px solid var(--line);border-radius:13px;padding:0 13px;background:#fff;color:var(--text)}
 .add button{width:44px;height:44px;border:1px solid var(--line);border-radius:13px;background:var(--accent);color:#fff;font-size:22px}
 .editGoal{border:0;background:none;padding:0;text-align:left;width:100%;color:inherit}
-.bottomNav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));width:min(420px,calc(100% - 24px));background:#26303d;border-radius:20px;padding:6px;display:grid;grid-template-columns:1fr 1fr;z-index:30;box-shadow:0 10px 34px #0003}
-.navBtn{height:48px;border:0;border-radius:15px;background:transparent;color:#aaa;font-weight:750}
-.navBtn.active{background:var(--accent);color:#fff}
+.bottomNav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));width:min(420px,calc(100% - 24px));background:#e8f3ff;border:1px solid #cfe5fb;border-radius:20px;padding:6px;display:grid;grid-template-columns:1fr 1fr;z-index:30;box-shadow:0 10px 34px #0003}
+.navBtn{height:48px;border:0;border-radius:15px;background:transparent;color:#718096;font-weight:750}
+.navBtn.active{background:#cfe7ff;color:#1268bd}
 .screen{display:none}.screen.active{display:block}
-.weekHero{background:linear-gradient(145deg,#1677e8,#0067d8);color:white;border-radius:26px;padding:20px;margin-bottom:14px}
+.weekHero{background:linear-gradient(145deg,#ddecff,#bddcff);color:#174a78;border-radius:26px;padding:20px;margin-bottom:14px}
 .weekHero small{opacity:.78;font-size:12px}.weekHero h2{font-size:30px;margin:6px 0 14px;letter-spacing:-.055em}
-.weekBar{height:10px;background:#ffffff35;border-radius:999px;overflow:hidden}.weekBar>i{display:block;height:100%;background:white;border-radius:999px;width:var(--w,0%)}
+.weekBar{height:10px;background:#ffffffa6;border-radius:999px;overflow:hidden}.weekBar>i{display:block;height:100%;background:#4da3ff;border-radius:999px;width:var(--w,0%)}
 .weekStats{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;opacity:.88}
 .weekList{display:grid;gap:12px}.weekCard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
 .weekHead{display:flex;align-items:center;gap:12px}.weekGoal{font-size:18px;font-weight:750;margin-top:2px}
@@ -94,7 +94,7 @@ dialog::backdrop{background:#0007;backdrop-filter:blur(5px)}
 .menu.open{display:block}.menu button,.menu label{display:flex;width:100%;min-height:43px;align-items:center;border:0;background:none;border-radius:11px;padding:0 12px}
 .danger{color:#a11}.hide{display:none}
 @media(prefers-color-scheme:dark){
-  :root{--bg:#11161d;--card:#18202a;--text:#f4f7fb;--muted:#99a4b3;--line:#2d3947;--soft:#222d39;--accent:#0A84FF;--accent-soft:#162b42;--accent-line:#397fc3}
+  :root{--bg:#151b22;--card:#1d2630;--text:#f4f7fb;--muted:#9eabb9;--line:#334252;--soft:#263544;--accent:#64b5ff;--accent-soft:#1d3852;--accent-line:#4c91cf}
   .add input,.field input,.field select,.field textarea{background:#222;color:var(--text)}
   .task{background:#222}.task.done{background:#20201b}.check{background:#1a1a1a}
   .add button,.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
