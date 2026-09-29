@@ -16,7 +16,7 @@
 html{background:#f7faff;color-scheme:light}
 body{margin:0;min-height:100vh;background:#f7faff;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,Arial,sans-serif;letter-spacing:-.02em}
 button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
-.app{max-width:720px;margin:auto;padding:calc(18px + env(safe-area-inset-top)) 14px calc(126px + env(safe-area-inset-bottom))}
+.app{max-width:720px;margin:auto;padding:calc(18px + env(safe-area-inset-top)) 14px calc(110px + env(safe-area-inset-bottom))}
 .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
 .logo{font-size:28px;font-weight:850;letter-spacing:-.07em}
 .icon{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:19px;box-shadow:0 3px 12px rgba(36,87,135,.06)}
@@ -45,13 +45,13 @@ button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .add input:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:#8fc4ff;box-shadow:0 0 0 3px #e6f2ff}
 .add input{width:100%;min-width:0;height:44px;border-radius:13px;padding:0 13px}.add button{width:44px;height:44px;border:0;border-radius:13px;background:var(--accent);color:#fff;font-size:22px}
 .editGoal{border:0;background:none;padding:0;text-align:left;width:100%;color:inherit}
-.bottomDock{position:fixed;left:0;right:0;bottom:0;height:calc(94px + env(safe-area-inset-bottom));z-index:30;pointer-events:none;display:flex;align-items:flex-start;justify-content:center;padding-top:8px}
-.bottomDock::before{content:"";position:absolute;inset:0;background:rgba(247,250,255,.58);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 10%,rgba(0,0,0,.28) 24%,rgba(0,0,0,.58) 42%,#000 68%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 10%,rgba(0,0,0,.28) 24%,rgba(0,0,0,.58) 42%,#000 68%,#000 100%);pointer-events:none}
-.bottomNav{position:relative;left:auto;transform:none;bottom:auto;width:min(470px,calc(100% - 28px))!important;height:62px;background:rgba(250,252,255,.66);border:1px solid rgba(255,255,255,.84);border-radius:22px;padding:5px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;z-index:1;box-shadow:0 8px 24px rgba(41,67,96,.10);-webkit-backdrop-filter:blur(18px) saturate(145%);backdrop-filter:blur(18px) saturate(145%);pointer-events:auto}
+.bottomDock{position:fixed;left:0;right:0;bottom:0;z-index:30;pointer-events:none;display:flex;justify-content:center;padding:0 14px calc(12px + env(safe-area-inset-bottom))}
+
+.bottomNav{position:relative;width:min(470px,100%)!important;height:62px;background:#ffffff;border:1px solid #dfe7f1;border-radius:22px;padding:5px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;box-shadow:0 8px 24px rgba(41,67,96,.10);pointer-events:auto}
 
 
 .navBtn{position:relative;z-index:1;height:50px;min-width:0;border:0;border-radius:17px;background:transparent;color:#667085;font-weight:720;font-size:14px;letter-spacing:-.02em;white-space:nowrap;padding:0 10px}
-.navBtn.active{background:rgba(220,238,255,.72);color:#176dc3;box-shadow:inset 0 0 0 1px rgba(187,217,246,.78)}
+.navBtn.active{background:#e5f2ff;color:#176dc3;box-shadow:inset 0 0 0 1px #c9e2fb}
 .screen{display:none}.screen.active{display:block}
 .weekHero{background:#e8f3ff;border:1px solid #cfe5fb;color:#174b7a;border-radius:26px;padding:20px;margin-bottom:14px;box-shadow:0 5px 18px rgba(40,83,125,.05)}
 .weekHero small{color:#52769a;font-size:12px;font-weight:700}.weekHero h2{font-size:30px;margin:6px 0 14px;letter-spacing:-.055em}
@@ -68,13 +68,13 @@ button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .expMeta{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.expMeta span{font-size:12px;color:var(--muted);background:#f5f8fb;border-radius:999px;padding:7px 9px}
 .expDetail{margin-top:13px;padding-top:13px;border-top:1px solid var(--line)}.expDetail dt{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-top:10px}.expDetail dt:first-child{margin-top:0}.expDetail dd{margin:4px 0 0;font-size:14px;line-height:1.45}
 .expStatus{font-size:12px;font-weight:750}.expStatus.active{color:var(--accent-strong)}.expStatus.finished{color:var(--muted)}
-dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-radius:24px;padding:0;background:#fff;color:var(--text)}dialog::backdrop{background:rgba(28,42,58,.35);backdrop-filter:blur(5px)}
+dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-radius:24px;padding:0;background:#fff;color:var(--text)}dialog::backdrop{background:rgba(28,42,58,.35);}
 .modal{padding:22px}.modal h2{font-size:26px;margin:0 0 16px;letter-spacing:-.05em}.field{margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
 .field input,.field select,.field textarea{width:100%;border-radius:13px;padding:13px}.field textarea{min-height:92px;resize:vertical}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
 .primary{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:999px;min-height:42px;padding:0 17px;font-weight:750}
 .menu{position:fixed;right:14px;bottom:calc(82px + env(safe-area-inset-bottom));width:min(290px,calc(100% - 28px));display:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;z-index:40;box-shadow:0 18px 50px rgba(30,60,90,.16)}
 .menu.open{display:block}.menu button,.menu label{display:flex;width:100%;min-height:43px;align-items:center;border:0;background:none;border-radius:11px;padding:0 12px}.danger{color:#b42318}.hide{display:none}
-@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.bottomDock{height:calc(90px + env(safe-area-inset-bottom));padding-top:8px}.bottomNav{width:calc(100% - 24px)!important;height:58px}.navBtn{height:46px;font-size:12.5px;padding:0 5px}.overview h1{font-size:31px}.goal{font-size:18px}}
+@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.bottomDock{padding-left:12px;padding-right:12px}.bottomNav{width:100%!important;height:58px}.navBtn{height:46px;font-size:12.5px;padding:0 5px}.overview h1{font-size:31px}.goal{font-size:18px}}
 
 @media(min-width:900px){
   .app{max-width:1180px;padding:32px 32px 110px}
