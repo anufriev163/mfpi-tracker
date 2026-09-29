@@ -45,9 +45,9 @@ button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
 .add input:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:#8fc4ff;box-shadow:0 0 0 3px #e6f2ff}
 .add input{width:100%;min-width:0;height:44px;border-radius:13px;padding:0 13px}.add button{width:44px;height:44px;border:0;border-radius:13px;background:var(--accent);color:#fff;font-size:22px}
 .editGoal{border:0;background:none;padding:0;text-align:left;width:100%;color:inherit}
-.bottomDock{position:fixed;left:0;right:0;bottom:0;z-index:30;pointer-events:none;display:flex;justify-content:center;padding:0 14px calc(12px + env(safe-area-inset-bottom))}
 
-.bottomNav{position:relative;width:min(470px,100%)!important;height:62px;background:#ffffff;border:1px solid #dfe7f1;border-radius:22px;padding:5px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;box-shadow:0 8px 24px rgba(41,67,96,.10);pointer-events:auto}
+
+.bottomNav{position:fixed;left:50%;bottom:calc(12px + var(--vv-bottom, 0px));transform:translateX(-50%);width:min(470px,calc(100% - 28px))!important;height:62px;background:#fff;border:1px solid #dfe7f1;border-radius:22px;padding:5px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;box-shadow:0 8px 24px rgba(41,67,96,.10);z-index:9999}
 
 
 .navBtn{position:relative;z-index:1;height:50px;min-width:0;border:0;border-radius:17px;background:transparent;color:#667085;font-weight:720;font-size:14px;letter-spacing:-.02em;white-space:nowrap;padding:0 10px}
@@ -74,7 +74,7 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
 .primary{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:999px;min-height:42px;padding:0 17px;font-weight:750}
 .menu{position:fixed;right:14px;bottom:calc(82px + env(safe-area-inset-bottom));width:min(290px,calc(100% - 28px));display:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;z-index:40;box-shadow:0 18px 50px rgba(30,60,90,.16)}
 .menu.open{display:block}.menu button,.menu label{display:flex;width:100%;min-height:43px;align-items:center;border:0;background:none;border-radius:11px;padding:0 12px}.danger{color:#b42318}.hide{display:none}
-@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.bottomDock{padding-left:12px;padding-right:12px}.bottomNav{width:100%!important;height:58px}.navBtn{height:46px;font-size:12.5px;padding:0 5px}.overview h1{font-size:31px}.goal{font-size:18px}}
+@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.bottomNav{width:calc(100% - 24px)!important;height:58px}.navBtn{height:46px;font-size:12.5px;padding:0 5px}.overview h1{font-size:31px}.goal{font-size:18px}}
 
 @media(min-width:900px){
   .app{max-width:1180px;padding:32px 32px 110px}
@@ -122,7 +122,7 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
   <div class="expList" id="expList"></div>
 </section>
 </main>
-<div class="bottomDock"><nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav></div>
+<nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav>
 <div class="menu" id="menu"><button id="editAll">Изменить направления</button><button id="export">Экспорт данных</button><label for="import">Импорт данных</label><input class="hide" id="import" type="file" accept="application/json"><button id="clearDay">Очистить сегодня</button><button class="danger" id="reset">Удалить всё</button></div>
 <dialog id="setup"><form class="modal" id="setupForm"><h2 id="setupTitle"></h2><div class="field"><input id="setupInput" maxlength="120"></div><div class="actions"><button type="button" class="pill" id="back">Назад</button><button class="primary" id="next">Далее</button></div></form></dialog>
 <dialog id="edit"><form class="modal" id="editForm"><h2 id="editTitle">Изменить</h2><div class="field"><input id="editInput" maxlength="120"></div><div class="actions"><button type="button" class="pill close">Отмена</button><button class="primary">Сохранить</button></div></form></dialog>
@@ -154,5 +154,21 @@ window.addEventListener('load',()=>{
   if('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));
   if('caches' in window) caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k))));
 });
+</script>
+<script>
+(function(){
+  function syncBottomNav(){
+    if(!window.visualViewport) return;
+    var vv=window.visualViewport;
+    var offset=Math.max(0,window.innerHeight-(vv.height+vv.offsetTop));
+    document.documentElement.style.setProperty('--vv-bottom',offset+'px');
+  }
+  if(window.visualViewport){
+    visualViewport.addEventListener('resize',syncBottomNav);
+    visualViewport.addEventListener('scroll',syncBottomNav);
+  }
+  window.addEventListener('resize',syncBottomNav);
+  syncBottomNav();
+})();
 </script>
 </body></html>
