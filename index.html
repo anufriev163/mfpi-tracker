@@ -97,18 +97,16 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
 .bottomBlur{
   position:fixed;
   left:0;right:0;bottom:0;
-  height:calc(112px + env(safe-area-inset-bottom));
+  height:calc(108px + env(safe-area-inset-bottom));
   z-index:25;
   pointer-events:none;
-  background:linear-gradient(to bottom,rgba(247,250,255,0) 0%,rgba(247,250,255,.34) 24%,rgba(247,250,255,.78) 68%,rgba(247,250,255,.96) 100%);
-  -webkit-backdrop-filter:blur(14px) saturate(125%);
-  backdrop-filter:blur(14px) saturate(125%);
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.28) 20%,#000 58%,#000 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.28) 20%,#000 58%,#000 100%);
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
 }
-@media(min-width:900px){
-  .bottomBlur{height:108px}
-}
+@media(min-width:900px){.bottomBlur{height:104px}}
 </style>
 </head>
 <body>
