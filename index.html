@@ -93,6 +93,22 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
   .weekList{grid-template-columns:repeat(2,minmax(0,1fr))}
   .expList{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+.bottomBlur{
+  position:fixed;
+  left:0;right:0;bottom:0;
+  height:calc(112px + env(safe-area-inset-bottom));
+  z-index:25;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(247,250,255,0) 0%,rgba(247,250,255,.34) 24%,rgba(247,250,255,.78) 68%,rgba(247,250,255,.96) 100%);
+  -webkit-backdrop-filter:blur(14px) saturate(125%);
+  backdrop-filter:blur(14px) saturate(125%);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.28) 20%,#000 58%,#000 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.28) 20%,#000 58%,#000 100%);
+}
+@media(min-width:900px){
+  .bottomBlur{height:108px}
+}
 </style>
 </head>
 <body>
@@ -117,7 +133,7 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
   <div class="expList" id="expList"></div>
 </section>
 </main>
-<nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav>
+<div class="bottomBlur" aria-hidden="true"></div>\n<nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav>
 <div class="menu" id="menu"><button id="editAll">Изменить направления</button><button id="export">Экспорт данных</button><label for="import">Импорт данных</label><input class="hide" id="import" type="file" accept="application/json"><button id="clearDay">Очистить сегодня</button><button class="danger" id="reset">Удалить всё</button></div>
 <dialog id="setup"><form class="modal" id="setupForm"><h2 id="setupTitle"></h2><div class="field"><input id="setupInput" maxlength="120"></div><div class="actions"><button type="button" class="pill" id="back">Назад</button><button class="primary" id="next">Далее</button></div></form></dialog>
 <dialog id="edit"><form class="modal" id="editForm"><h2 id="editTitle">Изменить</h2><div class="field"><input id="editInput" maxlength="120"></div><div class="actions"><button type="button" class="pill close">Отмена</button><button class="primary">Сохранить</button></div></form></dialog>
