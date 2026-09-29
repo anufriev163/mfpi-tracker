@@ -94,6 +94,13 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
   .expList{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 
+
+.blurRamp{position:fixed;left:0;right:0;bottom:0;height:190px;z-index:24;pointer-events:none;overflow:hidden}
+.blurRamp span{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.001);border:0;box-shadow:none}
+.blurRamp .b1{height:190px;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 38%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 38%,#000 100%)}
+.blurRamp .b2{height:150px;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 42%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 42%,#000 100%)}
+.blurRamp .b3{height:112px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 45%,#000 100%)}
+.blurRamp .b4{height:78px;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 48%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 48%,#000 100%)}
 </style>
 </head>
 <body>
@@ -118,7 +125,7 @@ dialog{width:min(500px,calc(100% - 28px));border:1px solid var(--line);border-ra
   <div class="expList" id="expList"></div>
 </section>
 </main>
-<nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav>
+<div class="blurRamp" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span></div>\n<nav class="bottomNav" style="grid-template-columns:repeat(3,1fr);width:min(520px,calc(100% - 24px))"><button class="navBtn active" data-screen="todayScreen">Сегодня</button><button class="navBtn" data-screen="weekScreen">Неделя</button><button class="navBtn" data-screen="experimentsScreen">Эксперименты</button></nav>
 <div class="menu" id="menu"><button id="editAll">Изменить направления</button><button id="export">Экспорт данных</button><label for="import">Импорт данных</label><input class="hide" id="import" type="file" accept="application/json"><button id="clearDay">Очистить сегодня</button><button class="danger" id="reset">Удалить всё</button></div>
 <dialog id="setup"><form class="modal" id="setupForm"><h2 id="setupTitle"></h2><div class="field"><input id="setupInput" maxlength="120"></div><div class="actions"><button type="button" class="pill" id="back">Назад</button><button class="primary" id="next">Далее</button></div></form></dialog>
 <dialog id="edit"><form class="modal" id="editForm"><h2 id="editTitle">Изменить</h2><div class="field"><input id="editInput" maxlength="120"></div><div class="actions"><button type="button" class="pill close">Отмена</button><button class="primary">Сохранить</button></div></form></dialog>
